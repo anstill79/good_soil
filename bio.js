@@ -1,3 +1,44 @@
+import { app, db } from "./db.js";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  deleteDoc,
+  doc,
+  onSnapshot,
+  query,
+  where,
+  orderBy,
+  serverTimestamp,
+} from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+
+const collectionReference = collection(db, "Measurements");
+
+// const addNewPtForm = document.getElementById("add_patient_form");
+// addNewPtForm.addEventListener("submit", (event) => {
+//   event.preventDefault();
+//   if (!addNewPtForm.firstName.value || !addNewPtForm.lastName.value) {
+//     addNewPtModal.close();
+//     return;
+//   }
+
+
+//   addDoc(collectionReference, {
+//     firstName: addNewPtForm.firstName.value,
+//     lastName: addNewPtForm.lastName.value,
+//     MRN: addNewPtForm.MRN.value,
+//     DOB: addNewPtForm.DOB.value,
+//     searchArray: [searchLast, searchFirst],
+//     createdAt: serverTimestamp(),
+//   }).then(() => {
+//     addNewPtForm.reset();
+//     addNewPtModal.close();
+//   });
+// });
+
+
+//--------------front end
+
 const btns = document.querySelectorAll(".h2o-level");
 btns.forEach((btn) => {
   btn.addEventListener("click", setLevelH2o);
@@ -34,7 +75,7 @@ function setLevelH2o(event) {
 
   this.classList.add(style);
   measurement[section] = [valueNum, valueText];
-
+  console.log(measurement)
 }
 
 const nameInput = document.getElementById("name");

@@ -17,8 +17,9 @@
   grid-template-columns: 50px;
   grid-template-rows: repeat(3, 1fr);
   justify-content: center;
-  border: 1px solid rgb(106, 0, 255);
+  /* border: 1px solid rgb(106, 0, 255); */
   margin: 10px;
+  gap: 2px;
 }
 
 form {
@@ -75,11 +76,17 @@ button:hover {
 #go {
   grid-row: 3;
   grid-column-start: 5;
-  grid-column-end: 6;
-  width: 4rem;
+  grid-column-end: -1;
+  width: 7rem;
   height: 2rem;
   justify-self: center;
   align-self: center;
+  color: black;
+  border-radius: 17px;
+}
+
+#go:hover {
+  font-style: italic;
 }
 
 #details {
@@ -87,15 +94,15 @@ button:hover {
   gap: 2px;
   flex-direction: column;
   grid-column-start: 1;
-  grid-column-end: 3;
+  grid-column-end: 4;
   justify-self: center;
   justify-content: center;
   font-size: 12px;
 }
 
-#name,
+#note,
 #date {
-  width: 100px;
+  width: 140px;
   height: 20px;
   padding-left: 0.5rem;
 }
