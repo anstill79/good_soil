@@ -12,23 +12,29 @@ function setLevelH2o(event) {
   const section = this.parentNode.id;
   const valueText = this.innerText;
   let valueNum;
+  let style;
   if (valueText === "High") {
     valueNum = 3;
+    style = 'btn-selected-high';
   }
   if (valueText === "Med") {
     valueNum = 2;
+    style = 'btn-selected-med';
   }
   if (valueText === "Low") {
     valueNum = 1;
+    style = 'btn-selected-low';
   }
   const parentElement = this.parentNode;
   const childElements = parentElement.children;
   for (let i = 0; i < childElements.length; i++) {
-    childElements[i].classList.remove("btn-selected");
+    childElements[i].className = '';
+    childElements[i].classList.add('h2o-level');
   }
-  this.classList.add("btn-selected");
+
+  this.classList.add(style);
   measurement[section] = [valueNum, valueText];
-  console.log(measurement);
+
 }
 
 const nameInput = document.getElementById("name");
@@ -47,7 +53,7 @@ function setDetail() {
   }
   console.log(measurement);
 }
-function submitMeasurement() {}
+function submitMeasurement() { }
 
 //--------- History section
 

@@ -5,11 +5,13 @@
   font-family: "Recursive", monospace;
   /* font-family: Arial, Helvetica, sans-serif; */
 }
+
 #major_container {
   display: grid;
   place-items: center;
   border: 1px solid rgb(217, 244, 7);
 }
+
 .soil-section {
   display: grid;
   grid-template-columns: 50px;
@@ -18,6 +20,7 @@
   border: 1px solid rgb(106, 0, 255);
   margin: 10px;
 }
+
 form {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -25,26 +28,46 @@ form {
   border: 1px solid rgb(33, 135, 113);
   grid-row: 2;
 }
+
 h1 {
   text-align: center;
   padding: 20px;
 }
-.btn-selected {
-  background-color: rgb(119, 211, 49);
+
+.btn-selected-high {
+  background-color: #4942E4;
+  color: white;
 }
-.btn-selected:hover {
+
+.btn-selected-med {
+  background-color: #8696FE;
+  color: white;
+}
+
+.btn-selected-low {
+  background-color: #C4B0FF;
+  color: white;
+}
+
+.btn-selected-high:hover,
+.btn-selected-med:hover,
+.btn-selected-low:hover {
   background-color: rgb(108, 241, 7);
 }
+
 button {
   border: 1px solid rgb(44, 113, 134);
   border-radius: 0px;
-  background-color: rgba(83, 200, 235, 0.404);
+  background-color: white;
+  color: cadetblue;
   text-shadow: 0px;
 }
+
 button:hover {
-  background-color: white;
+  background-color: rgba(90, 30, 231, 0.247);
   cursor: pointer;
 }
+
 .h2o-level {
   border-radius: 7px;
 }
@@ -58,6 +81,7 @@ button:hover {
   justify-self: center;
   align-self: center;
 }
+
 #details {
   display: flex;
   gap: 2px;
@@ -68,6 +92,7 @@ button:hover {
   justify-content: center;
   font-size: 12px;
 }
+
 #name,
 #date {
   width: 100px;
