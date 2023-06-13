@@ -23,21 +23,11 @@ const collectionReference = collection(db, "Measurements");
 //   }
 
 
-//   addDoc(collectionReference, {
-//     firstName: addNewPtForm.firstName.value,
-//     lastName: addNewPtForm.lastName.value,
-//     MRN: addNewPtForm.MRN.value,
-//     DOB: addNewPtForm.DOB.value,
-//     searchArray: [searchLast, searchFirst],
-//     createdAt: serverTimestamp(),
-//   }).then(() => {
-//     addNewPtForm.reset();
-//     addNewPtModal.close();
-//   });
-// });
+
 
 
 //--------------front end
+const form = document.forms[0];
 
 const btns = document.querySelectorAll(".h2o-level");
 btns.forEach((btn) => {
@@ -72,29 +62,40 @@ function setLevelH2o(event) {
     childElements[i].className = '';
     childElements[i].classList.add('h2o-level');
   }
-
   this.classList.add(style);
   measurement[section] = [valueNum, valueText];
-  console.log(measurement)
 }
-
-const nameInput = document.getElementById("name");
+function clearButtonClasses() {
+  for (let i = 0; i < btns.length; i++) {
+    btns[i].className = '';
+    btns[i].classList.add('h2o-level');
+  }
+}
+const noteInput = document.getElementById("note");
 const dateInput = document.getElementById("date");
-nameInput.addEventListener("blur", setDetail);
+noteInput.addEventListener("blur", setDetail);
 dateInput.addEventListener("blur", setDetail);
 function setDetail() {
   const sourceItem = this.id;
   const sourceValue = this.value;
 
-  if (sourceItem === "name") {
-    measurement.name = sourceValue;
+  if (sourceItem === "note") {
+    measurement.note = sourceValue;
   }
   if (sourceItem === "date") {
     measurement.date = sourceValue;
   }
-  console.log(measurement);
 }
-function submitMeasurement() { }
+function submitMeasurement(event) {
+  event.preventDefault();
+  addDoc(collectionReference, {
+    measurement: measurement,
+    createdAt: serverTimestamp(),
+  }).then(() => {
+    form.reset();
+    clearButtonClasses();
+  });
+}
 
 //--------- History section
 
