@@ -14,18 +14,6 @@ import {
 
 const collectionReference = collection(db, "Measurements");
 
-// const addNewPtForm = document.getElementById("add_patient_form");
-// addNewPtForm.addEventListener("submit", (event) => {
-//   event.preventDefault();
-//   if (!addNewPtForm.firstName.value || !addNewPtForm.lastName.value) {
-//     addNewPtModal.close();
-//     return;
-//   }
-
-
-
-
-
 //--------------front end
 const form = document.forms[0];
 
@@ -101,3 +89,20 @@ function submitMeasurement(event) {
 
 const hxContainer = document.getElementById("history");
 const historyList = hxContainer.querySelector("ul");
+
+let measurementHx = [];
+async function getAllMeasurements() {
+  measurementHx = [];
+  const results = await getDocs(collectionReference);
+  results.docs.forEach((doc) => {
+    measurementHx.push({ ...doc.data(), id: doc.id });
+  });
+  displayMeasurementHx();
+}
+
+function displayMeasurementHx() {
+  //const keys = Object.keys(measurementHx);
+  console.log(measurementHx[2].measurement.date)
+}
+
+getAllMeasurements()
