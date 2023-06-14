@@ -44,14 +44,24 @@ function setLevelH2o(event) {
     valueNum = 1;
     style = 'btn-selected-low';
   }
+  let modification;
+  if (!this.classList.contains(style)) {
+    modification = 'add'
+  }
   const parentElement = this.parentNode;
   const childElements = parentElement.children;
   for (let i = 0; i < childElements.length; i++) {
     childElements[i].className = '';
     childElements[i].classList.add('h2o-level');
   }
-  this.classList.add(style);
-  measurement[section] = [valueNum, valueText];
+  if (modification === 'add') {
+    this.classList.add(style);
+    measurement[section] = [valueNum, valueText];
+  } else {
+    this.classList.remove(style);
+    measurement[section] = "";
+  }
+
 }
 function clearButtonClasses() {
   for (let i = 0; i < btns.length; i++) {
@@ -109,7 +119,6 @@ function displayMeasurementHx() {
       console.log(key + " " + value)
     }
   });
-
 }
 
 getAllMeasurements()
