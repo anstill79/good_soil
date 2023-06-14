@@ -101,8 +101,15 @@ async function getAllMeasurements() {
 }
 
 function displayMeasurementHx() {
-  //const keys = Object.keys(measurementHx);
-  console.log(measurementHx[2].measurement.date)
+  measurementHx.forEach((element, index) => {
+    let obj = measurementHx[index].measurement;
+    console.log("dodo" + " " + measurementHx[index].date)
+    for (const key in obj) {
+      const value = obj[key];
+      console.log(key + " " + value)
+    }
+  });
+
 }
 
 getAllMeasurements()
