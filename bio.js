@@ -61,7 +61,7 @@ function setLevelH2o(event) {
     this.classList.remove(style);
     measurement[section] = "";
   }
-
+  console.log(measurement)
 }
 function clearButtonClasses() {
   for (let i = 0; i < btns.length; i++) {
@@ -107,7 +107,7 @@ async function getAllMeasurements() {
   results.docs.forEach((doc) => {
     measurementHx.push({ ...doc.data(), id: doc.id });
   });
-  displayMeasurementHx();
+  displayMeasurementHx()
 }
 
 function displayMeasurementHx() {
@@ -120,5 +120,4 @@ function displayMeasurementHx() {
     }
   });
 }
-
-getAllMeasurements()
+//getAllMeasurements()
