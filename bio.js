@@ -14,6 +14,7 @@ import {
 
 const collectionReference = collection(db, "Measurements");
 
+
 //--------------front end
 const form = document.forms[0];
 
@@ -61,7 +62,7 @@ function setLevelH2o(event) {
     this.classList.remove(style);
     measurement[section] = "";
   }
-  console.log(measurement)
+  //console.log(measurement)
 }
 function clearButtonClasses() {
   for (let i = 0; i < btns.length; i++) {
@@ -84,6 +85,7 @@ function setDetail() {
     measurement.date = sourceValue;
   }
 }
+
 function submitMeasurement(event) {
   event.preventDefault();
   addDoc(collectionReference, {
@@ -111,13 +113,21 @@ async function getAllMeasurements() {
 }
 
 function displayMeasurementHx() {
-  measurementHx.forEach((element, index) => {
-    let obj = measurementHx[index].measurement;
-    console.log("dodo" + " " + measurementHx[index].date)
-    for (const key in obj) {
-      const value = obj[key];
-      console.log(key + " " + value)
-    }
-  });
+  console.log(measurementHx[0])
+  // const keyToValues = {};
+  // for (const m of measurementHx) {
+  //   for (const key in m) {
+  //     if (!keyToValues.hasOwnProperty(key)) {
+  //       keyToValues[key] = [];
+  //     }
+
+  //     keyToValues[key].push(m[key]);
+  //   }
+  // }
+
+  //console.log(keyToValues);
 }
-//getAllMeasurements()
+
+getAllMeasurements()
+
+
