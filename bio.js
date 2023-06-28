@@ -57,7 +57,7 @@ function setLevelH2o(event) {
   }
   if (modification === 'add') {
     this.classList.add(style);
-    measurement[section] = [valueNum, valueText];
+    measurement[section] = valueNum;
   } else {
     this.classList.remove(style);
     measurement[section] = "";
@@ -99,7 +99,7 @@ function submitMeasurement(event) {
 
 //--------- History section
 
-const hxContainer = document.getElementById("history");
+const hxContainer = document.getElementById("history-container");
 const historyList = hxContainer.querySelector("ul");
 
 let measurementHx = [];
@@ -113,20 +113,18 @@ async function getAllMeasurements() {
 }
 
 function displayMeasurementHx() {
-  console.log(measurementHx[0])
-  // const keyToValues = {};
-  // for (const m of measurementHx) {
-  //   for (const key in m) {
-  //     if (!keyToValues.hasOwnProperty(key)) {
-  //       keyToValues[key] = [];
-  //     }
 
-  //     keyToValues[key].push(m[key]);
-  //   }
-  // }
-
-  //console.log(keyToValues);
+  let obj = measurementHx[0].measurement;
+  const arr = [];
+  for (const prop in obj) {
+    arr.push({
+      [prop]: obj[prop],
+    });
+  }
+  //arr.sort((a, b) => a - b)
+  console.log(arr);
 }
+
 
 getAllMeasurements()
 

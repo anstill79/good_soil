@@ -14,7 +14,7 @@
 
 .soil-section {
   display: grid;
-  grid-template-columns: 50px;
+  grid-template-columns: 60px;
   grid-template-rows: repeat(3, 1fr);
   justify-content: center;
   /* border: 1px solid rgb(106, 0, 255); */
@@ -25,9 +25,10 @@
 form {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 1fr 1fr 2fraQ;
+  grid-template-rows: 1fr 1fr 1.5fr;
   border: 1px solid rgb(33, 135, 113);
   grid-row: 2;
+  min-width: 500px;
 }
 
 h1 {
@@ -119,7 +120,18 @@ button:hover {
   padding-left: 0.5rem;
 }
 
-#history {
+#history-container {
   display: grid;
   place-items: center;
 }
+
+#history-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr 1fr 1.5fr;
+  border: 1px solid rgb(33, 135, 113);
+  grid-row: 2;
+  min-width: 500px;
+}
+
+.results-section {}
