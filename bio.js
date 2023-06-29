@@ -103,6 +103,7 @@ const hxContainer = document.getElementById("history-container");
 const historyList = hxContainer.querySelector("ul");
 
 let measurementHx = [];
+
 async function getAllMeasurements() {
   measurementHx = [];
   const results = await getDocs(collectionReference);
@@ -113,16 +114,15 @@ async function getAllMeasurements() {
 }
 
 function displayMeasurementHx() {
-
-  let obj = measurementHx[0].measurement;
+  let obj = measurementHx;
   const arr = [];
   for (const prop in obj) {
     arr.push({
       [prop]: obj[prop],
     });
   }
-  //arr.sort((a, b) => a - b)
-  console.log(arr);
+  const yo = Object.entries(obj);
+  console.log(arr[2][2].measurement)
 }
 
 

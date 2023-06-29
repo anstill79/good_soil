@@ -9,7 +9,7 @@
 #major_container {
   display: grid;
   place-items: center;
-  border: 1px solid rgb(217, 244, 7);
+  /* border: 1px solid rgb(217, 244, 7); */
 }
 
 .soil-section {
@@ -128,10 +128,16 @@ button:hover {
 #history-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 1fr 1fr 1.5fr;
+  grid-template-rows: 4rem 4rem;
   border: 1px solid rgb(33, 135, 113);
   grid-row: 2;
   min-width: 500px;
 }
 
-.results-section {}
+.btn-results {
+  margin: 10px;
+}
+
+.spacer {
+  height: 30px;
+}
