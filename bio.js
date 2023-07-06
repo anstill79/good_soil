@@ -86,10 +86,12 @@ function setDetail() {
   }
 }
 
+let objj = [{ "7/4/2023": 3 }, { "7/5/2023": 2 }]
+
 function submitMeasurement(event) {
   event.preventDefault();
   addDoc(collectionReference, {
-    measurement: measurement,
+    measurement: objj,
     createdAt: serverTimestamp(),
   }).then(() => {
     form.reset();
@@ -114,18 +116,27 @@ async function getAllMeasurements() {
 }
 
 function displayMeasurementHx() {
-  let obj = measurementHx;
-  const arr = [];
-  for (const prop in obj) {
-    arr.push({
-      [prop]: obj[prop],
-    });
-  }
-  const yo = Object.entries(obj);
-  console.log(arr[2][2].measurement)
+
+  const yo = Object.entries(measurementHx);
+
+  console.log(yo)
 }
 
 
 getAllMeasurements()
 
+//--- just write a gnarly fx to spread the items to their spots
+
+
+//-------------trash?
+  // const arr = [];
+  // for (const prop in obj) {
+  //   arr.push({
+  //     [prop]: obj[prop],
+  //   });
+  // }
+
+
+
+  //---- charts
 
