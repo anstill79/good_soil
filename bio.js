@@ -12,8 +12,13 @@ import {
   serverTimestamp,
 } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
 
-const collectionReference = collection(db, "Measurements");
 
+import { auth, userSignUp } from "./auth.js";
+
+const collectionReference = collection(db, "measurements");
+
+
+userSignUp();
 
 //--------------front end
 const form = document.forms[0];
@@ -86,12 +91,11 @@ function setDetail() {
   }
 }
 
-let objj = [{ "7/4/2023": 3 }, { "7/5/2023": 2 }]
-
 function submitMeasurement(event) {
+  console.log(measurement)
   event.preventDefault();
   addDoc(collectionReference, {
-    measurement: objj,
+    measurement: measurement,
     createdAt: serverTimestamp(),
   }).then(() => {
     form.reset();
@@ -116,27 +120,9 @@ async function getAllMeasurements() {
 }
 
 function displayMeasurementHx() {
+  console.log(measurementHx)
 
-  const yo = Object.entries(measurementHx);
-
-  console.log(yo)
 }
 
 
 getAllMeasurements()
-
-//--- just write a gnarly fx to spread the items to their spots
-
-
-//-------------trash?
-  // const arr = [];
-  // for (const prop in obj) {
-  //   arr.push({
-  //     [prop]: obj[prop],
-  //   });
-  // }
-
-
-
-  //---- charts
-
